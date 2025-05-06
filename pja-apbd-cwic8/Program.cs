@@ -13,8 +13,9 @@ public class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddControllers();
         builder.Services.AddSwaggerGen();
-        
+
         builder.Services.AddScoped<TripsService>();
+        builder.Services.AddScoped<ClientService>();
 
         var app = builder.Build();
 

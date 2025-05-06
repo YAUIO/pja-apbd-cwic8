@@ -8,24 +8,17 @@ namespace pja_apbd_cwic8.Controllers;
 [ApiController]
 public class TripsController : ControllerBase
 {
-    private readonly TripsService _service;
+    private readonly TripsService _tripsService;
 
-    public TripsController(TripsService service)
+    public TripsController(TripsService tripsService, ClientService clientService)
     {
-        _service = service;
+        _tripsService = tripsService;
     }
 
-    [HttpGet]
+    [HttpGet] //api/trips/ - get all trips
     public async Task<IActionResult> GetTripsAsync()
     {
-        List<TripGet> trips = await _service.GetAllTripsAsync();
-        return Ok(trips);
-    }
-
-    [HttpGet("{id}/trips")]
-    public async Task<IActionResult> GetClientsTripsAsync(int id)
-    {
-        List<TripGet> trips = await _service.GetTripsByClientAsync(id);
+        List<TripGet> trips = await _tripsService.GetAllTripsAsync();
         return Ok(trips);
     }
 }

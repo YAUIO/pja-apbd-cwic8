@@ -1,6 +1,6 @@
 ﻿namespace pja_apbd_cwic8.DTOs;
 
-public class TripGet
+public class TripClientGet
 {
     public int Id { set; get; }
     public string Name { set; get; }
@@ -8,5 +8,6 @@ public class TripGet
     public DateTime DateFrom { set; get; }
     public DateTime DateTo { set; get; }
     public int MaxPeople { set; get; }
-    public List<string> Countries { set; get; }
+    public int RegisteredAt { set; get; }
+    public int? PaymentDate { set; get; }
 }
